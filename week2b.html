@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Information</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<style>
+    h1{
+        text-align: center;
+        background-color: brown;
+    }
+    form{
+        border-width: thin;
+        border-style: solid;
+        border-radius: 10px;
+        padding: 10px;
+        float:left;
+        margin-left: 40%;
+    }
+    button{
+        margin-left: 35%;
+    }
+</style>
+<body>
+
+<h1>Employee Information</h1>
+
+<form id="employeeForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+<br><br>
+    <label for="empId">Emp. Id:</label>
+    <input type="text" id="empId" name="empId" required>
+<br><br>
+    <label for="department">Department:</label>
+    <input type="text" id="department" name="department" required>
+<br><br>
+    <label for="salary">Salary:</label>
+    <input type="number" id="salary" name="salary" required>
+<br><br>
+    <label for="address">Address:</label>
+    <textarea id="address" name="address" required></textarea>
+<br><br>
+    <button type="button" onclick="saveEmployee()">Save Employee</button>
+</form>
+
+<script>
+    // Create or open the SQLite database
+    var db = openDatabase('EmployeeDB', '1.0', 'Employee Database', 2 * 1024 * 1024);
+
+    // Create a table if it doesn't exist
+    db.transaction(function (tx) {
+        tx.executeSql('CREATE TABLE IF NOT EXISTS employees (id INTEGER PRIMARY KEY, name TEXT, empId TEXT, department TEXT, salary INTEGER, address TEXT)');
+    });
+
+    function saveEmployee() {
+        var name = $("#name").val();
+        var empId = $("#empId").val();
+        var department = $("#department").val();
+        var salary = $("#salary").val();
+        var address = $("#address").val();
+
+        db.transaction(function (tx) {
+            tx.executeSql('INSERT INTO employees (name, empId, department, salary, address) VALUES (?, ?, ?, ?, ?)',
+                [name, empId, department, salary, address],
+                function (tx, results) {
+                    alert("Employee information saved successfully!");
+                    // You can perform additional actions after saving, if needed
+                },
+                function (tx, error) {
+                    alert('Error: ' + error.message);
+                });
+        });
+    }
+</script>
+
+</body>
+</html>

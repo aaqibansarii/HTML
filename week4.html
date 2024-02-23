@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form Validation</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<style>
+    h2{
+        text-align: center;
+        background-color: brown;
+    }
+    form{
+        border-width: thin;
+        border-style: solid;
+        border-radius: 10px;
+        padding: 10px;
+        float:left;
+        margin-left: 40%;
+    }
+    button{
+        margin-left: 35%;
+    }
+</style>
+<body>
+
+<form id="registrationForm">
+    <h2>Registration Form</h2>
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" required>
+<br><br>
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" required>
+<br><br>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+<br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+<br><br>
+    <label for="dob">Date of Birth:</label>
+    <input type="text" id="dob" name="dob" placeholder="YYYY-MM-DD" required>
+<br><br>
+    <label for="postalCode">Postal Code:</label>
+    <input type="text" id="postalCode" name="postalCode" required>
+<br><br>
+    <label for="mobileNo">Mobile No.:</label>
+    <input type="text" id="mobileNo" name="mobileNo" required>
+<br><br>
+    <label for="email">E-mail id:</label>
+    <input type="text" id="email" name="email" required>
+<br><br>
+    <button type="button" onclick="validateForm()">Submit</button>
+</form>
+
+<script>
+    function validateForm() {
+        // Regular expressions for validation
+        var nameRegex = /^[A-Za-z]{8,}$/;
+        var usernameRegex = /^[A-Za-z0-9_]+$/;
+        var passwordRegex = /^.{8,}$/;
+        var dobRegex = /^\d{4}-\d{2}-\d{2}$/;
+        var postalCodeRegex = /^\d{6}$/;
+        var mobileNoRegex = /^\d{10}$/;
+        var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+        // Get values from form
+        var firstName = $("#firstName").val();
+        var lastName = $("#lastName").val();
+        var username = $("#username").val();
+        var password = $("#password").val();
+        var dob = $("#dob").val();
+        var postalCode = $("#postalCode").val();
+        var mobileNo = $("#mobileNo").val();
+        var email = $("#email").val();
+
+        // Perform validation
+        if (!nameRegex.test(firstName) || !nameRegex.test(lastName)) {
+            alert("First Name and Last Name should contain only alphabets and have a minimum length of 8 characters.");
+        } else if (!usernameRegex.test(username)) {
+            alert("Username should contain a combination of alphabets, numbers, and _ without spaces or special symbols.");
+        } else if (!passwordRegex.test(password)) {
+            alert("Password should be at least 8 characters long.");
+        } else if (!dobRegex.test(dob)) {
+            alert("Invalid Date of Birth. Please use the format YYYY-MM-DD.");
+        } else if (!postalCodeRegex.test(postalCode)) {
+            alert("Postal Code must be a 6-digit valid number.");
+        } else if (!mobileNoRegex.test(mobileNo)) {
+            alert("Mobile No. should contain only numbers and have a total of 10 digits.");
+        } else if (!emailRegex.test(email)) {
+            alert("Invalid E-mail id. Please use the format: mailid@domainname.com");
+        } else {
+            // Form is valid, you can proceed with submission or other actions
+            alert("Form is valid. Submitting...");
+            // Add code for form submission or other actions here
+        }
+    }
+</script>
+
+</body>
+</html>

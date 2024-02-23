@@ -1,0 +1,86 @@
+<html>
+  <link rel="stylesheet" href="test.css">
+<head>
+  <title>idk</title>
+</head>
+<body>
+  <fieldset>
+    <form action="">
+      <fieldset>
+        <h1>User Details</h1>
+        <div>
+          <label for="fname">First Name :</label>
+          <input type="text" name="FirstName" id="fname" required><br>
+        </div>
+        <div>
+          <label for="lname">Last Name :</label>
+          <input type="text" name="Lastname" id="lname"><br>
+        </div>
+        <div>
+          <label for="email">Email :</label>
+          <input type="email" name="mail" id="email" required><br>
+        </div>
+        <div>
+          <label for="phone" >Phone no :</label>
+          <input type="number" name="Number" id="phone" required><br>
+        </div>
+      </fieldset>
+      
+      <fieldset>
+        <h1>Personal Details</h1>
+        <div>
+          <label for="al1">Address :</label>
+          <input type="text" name="Address line 1" id="al1" required><br>
+          <label for="" class="bla"></label>
+          <input type="text" name="Address Line 2" id="al2" ><br>
+          *Include your email and pincode
+        </div>
+        <div>
+          <label for="aadhar">Aadhar Number :</label>
+          <input type="number" name="Aadhar" id="aadhar" required minlength="12" maxlength="12"><br>
+        </div>
+        <div>
+          <label for="pan">PAN card number :</label>
+          <input type="number" name="PAN" id="pan" required><br>
+        </div>
+      </fieldset> 
+    
+      <fieldset>
+        <h1>Educational Details</h1>
+
+        <div>
+          Qualification :
+          <br>
+          <input type="radio" name="edu" id="tenth">
+          <label for="tenth">10th</label><br>
+          <input type="radio" name="edu" id="inter">
+          <label for="inter">Intermediate</label><br>
+          <input type="radio" name="edu" id="ug">
+          <label for="ug">Under Graduate</label><br>
+          <input type="radio" name="edu" id="pg">
+          <label for="pg">Post Graduate</label><br>
+        </div>
+
+        <div>
+          Technologies known:
+          <br>
+          <input type="checkbox" name="tech" id="c">
+          <label for="c">C</label><br>
+          <input type="checkbox" name="tech" id="java">
+          <label for="java">Java</label><br>
+          <input type="checkbox" name="tech" id="py">
+          <label for="py">Python</label><br>
+          <input type="checkbox" name="tech" id="wt">
+          <label for="wt">HTML, CSS, JS</label><br>
+        </div>
+
+        <div>
+          Certifications: <br>
+          <input type="file" style="width: auto; ">
+        </div>
+      </fieldset>
+      <input type="submit">
+    </form>
+  </fieldset>
+</body>
+</html>

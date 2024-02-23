@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas_image</title>
+</head>
+<body>
+    <h1>Canvas 2D Image</h1>
+    <canvas id="2dimg" width=600 height=400 style="border:3px solid black;">Your browser does not support the HTML canvas tag.</canvas>
+    <script>
+        var canvas = document.getElementById("2dimg");
+        var c=canvas.getContext("2d");
+        c.font="30px ariel";
+        c.fillText("Home",250,25);
+        c.fillStyle="rgb(255,180,16)";
+        c.arc(95,50,40,0,2 * Math.PI);
+        c.fill();
+        c.fillStyle="rgb(120,121,123)";
+        c.fillRect(160,120,400,250);
+        c.fillStyle="rgb(220,120,33)";
+        c.fillRect(200,180,30,20);
+        c.fillRect(260,180,30,20);
+        c.fillRect(320,180,30,20);
+        c.fillRect(380,180,30,20);
+        c.fillRect(440,180,30,20);
+        c.fillRect(500,180,30,20);
+        c.fillStyle="rgb(120,230,110)";
+        c.fillRect(320,250,80,120);
+        c.moveTo(160,120);
+        c.lineTo(365,30);
+        c.lineTo(560,120);
+        c.stroke();
+    </script>
+</body>
+</html>

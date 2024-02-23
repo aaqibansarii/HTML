@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Canvas Image</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="400" height="300"></canvas>
+    <script>
+        const canvas = document.getElementById("myCanvas");
+        const ctx = canvas.getContext("2d");
+
+        // Set background color (optional)
+        ctx.fillStyle = "lightblue";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Draw a circle with gradient
+        const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+        gradient.addColorStop(0, "red");
+        gradient.addColorStop(1, "yellow");
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(canvas.width / 2, canvas.height / 2, 50, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Draw text with shadow
+        ctx.font = "30px Arial";
+        ctx.fillStyle = "black";
+        ctx.fillText("Hello, world!", canvas.width / 2 - 70, canvas.height / 2 + 10);
+    </script>
+</body>
+</html>

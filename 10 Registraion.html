@@ -1,0 +1,84 @@
+<html>
+  <style>
+    h1{
+      text-align: center;
+    }
+    fieldset{
+      background-color: white ;
+    }
+    .sub{
+      position: relative;
+      left: 100px;
+    }
+  </style>
+  <head>
+    <title>Registration for coding bootcamp</title>
+    
+  </head>
+  <h1><b>Bootcamp Registration</b></h1>
+  <body>
+    <fieldset ><form action="">
+      <label for="Uname">
+        Name : 
+      </label>
+      <input type="text" id="Uname" required><br>
+      <label for="email">
+        Email : 
+      </label>
+      <input type="email" name="mail" id="email"><br>
+      <label for="pass">
+        Password : 
+      </label>
+      <input type="password" name="Password" id="pass"><br>
+      <label for="dob">
+        DOB : 
+      </label>
+      <input type="date" id="dob"><br>
+      <label for="gender">
+        Gender : 
+      </label>
+      <select name="genders" id="gender" required>
+        <option value="m">Male</option>
+        <option value="f">Female</option>
+        <option value="o">other</option>
+      </select><br>
+      <label for="college">
+        College : 
+      </label>
+      <input type="text" id="college" required><br>
+      <label for="branch">
+        Branch : 
+      </label>
+      <input type="text" id="branch" required><br>
+      <label for="section">
+        Section : 
+      </label>
+      <input type="text" id="section"><br><br>
+
+      <b>Select the course you want to take</b><br>
+      <input type="radio" id="c" name="courses">
+      <label for="c"> C </label><br>
+      <input type="radio" name="courses" id="java">
+      <label for="java"> Java</label><br>
+      <input type="radio" name="courses" id="python">
+      <label for="python"> Python</label><br>
+      <input type="radio" name="courses" id="wt">
+      <label for="wt"> Web Technologies</label><br><br>
+
+      <b>What are the cources you already have knowledge of?</b><br>
+      <input type="checkbox" id="c" name="exp">
+      <label for="c"> C</label><br>
+      <input type="checkbox" id="ja" name="exp">
+      <label for="ja"> Java</label><br>
+      <input type="checkbox" id="py" name="exp">
+      <label for="py"> Python</label><br>
+      <input type="checkbox" id="web" name="exp">
+      <label for="web"> Web Technologies</label><br><br>
+
+      <button class="sub"  type="submit" >Submit</button>
+
+    </form>
+
+  </fieldset>
+  </body>
+</html>

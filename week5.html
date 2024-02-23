@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Web Page</title>
+    <style>
+        #animatedText {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        #resizeArea {
+            width: 300px;
+            height: 200px;
+            border: 1px solid #000;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Displaying Images with Custom Animated Effects -->
+<div id="imageContainer">
+    <img width="200px" src="img/pexels-james-wheeler-1519088.jpg" alt="Image 1" class="animatedImage">
+    <img width="200px" src="img/pexels-eberhard-grossgasteiger-443446.jpg" alt="Image 2" class="animatedImage">
+    <img width="200px" src="img/pexels-pixabay-459203.jpg" alt="Image 3" class="animatedImage">
+</div>
+
+<!-- Playing Selected Video -->
+<div id="videoContainer">
+    <select id="videoList">
+        <option value="img/x2mate.com-Railin Oligal _ Blue Star _ Ashok Selvan, Keerthi _ Govind Vasantha _ S.Jaya Kumar _ Pa.Ranjith-(1080p).mp4">Video 1</option>
+        <option value="img/x2mate.com-Unakku Thaan - Music Video _ Chithha _ Siddharth _ Santhosh Narayanan _ Deeraj Vaidy _ Etaki-(1080p).mp4">Video 2</option>
+        <option value="video3.mp4">Video 3</option>
+    </select>
+    <button onclick="playSelectedVideo()">Play Video</button>
+    <video id="selectedVideo" width="400" controls></video>
+</div>
+
+<!-- Animated Text with Increasing and Decreasing Font Size -->
+<div id="animatedText">This is animated text</div>
+
+<!-- Changing Size of the Area Using DIV Tag -->
+<div id="resizeArea" onclick="changeSize()">
+    Aaqib
+</div>
+
+<!-- Hiding and Showing Elements -->
+<button onclick="toggleElements()">Toggle Elements</button>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    // Displaying Images with Custom Animated Effects
+    $(document).ready(function () {
+        $(".animatedImage").hover(
+            function () {
+                $(this).animate({width: '+=30px', height: '+=30px'}, 'fast');
+            },
+            function () {
+                $(this).animate({width: '-=30px', height: '-=30px'}, 'fast');
+            }
+        );
+    });
+
+    // Playing Selected Video
+    function playSelectedVideo() {
+        var selectedVideo = $("#videoList").val();
+        $("#selectedVideo").attr("src", selectedVideo);
+    }
+
+    // Animated Text with Increasing and Decreasing Font Size
+    $(document).ready(function () {
+        var fontSize = 20;
+        var increasing = true;
+
+        function animateText() {
+            $("#animatedText").css("font-size", fontSize + "px");
+            if (increasing) {
+                fontSize += 2;
+            } else {
+                fontSize -= 2;
+            }
+
+            if (fontSize > 30) {
+                increasing = false;
+            } else if (fontSize < 20) {
+                increasing = true;
+            }
+        }
+
+        setInterval(animateText, 500);
+    });
+
+    // Changing Size of the Area Using DIV Tag
+    function changeSize() {
+        var newSize = Math.random() * 200 + 100;
+        $("#resizeArea").animate({width: newSize + "px", height: newSize + "px"}, 'slow');
+    }
+
+    // Hiding and Showing Elements
+    function toggleElements() {
+        $("#imageContainer, #videoContainer, #animatedText, #resizeArea").toggle();
+    }
+</script>
+</body>
+</html>
